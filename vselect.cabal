@@ -1,0 +1,21 @@
+Name:               vselect
+Version:            0.1
+Synopsis:           Visual list selector for terminal 
+Description:        'vselect' provides a means to visually select elements from
+                    a list in a terminal. The UI is based on vty-ui. 
+Category:           Console
+Author:             Andreas Fidjeland <andreas.fidjeland@imperial.ac.uk>
+Maintainer:         Andreas Fidjeland <andreas.fidjeland@imperial.ac.uk>
+Build-Type:         Simple
+License:            BSD3
+License-File:       LICENSE
+Cabal-Version:      >= 1.2
+
+Executable vselect
+    Build-depends:  base,   
+                    mtl >= 2.0 && < 2.1,
+                    vty-ui >= 1.1,
+                    vty >= 4.6 && < 4.7
+    GHC-Options:    -Wall
+    Hs-Source-Dirs: src
+    Main-is:        VSelect.hs
