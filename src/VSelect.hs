@@ -1,9 +1,6 @@
 {-# OPTIONS_GHC -fno-warn-missing-signatures -fno-warn-unused-do-bind #-}
 module Main where
 
--- TODO: join index-key to the entry index
--- TODO: add on-line search
-
 import Control.Monad (when, forM, forM_)
 import Data.Char (isDigit, digitToInt)
 import Data.IORef
@@ -12,6 +9,7 @@ import Data.Maybe (fromJust)
 import Graphics.Vty
 import Graphics.Vty.Widgets.All
 import System.Exit (exitFailure)
+import System.Environment (getArgs)
 
 
 data Entry = Entry {
@@ -92,10 +90,18 @@ listWidget input exit = do
     return w
 
 
+getInput :: IO [String]
+getInput = do
+    args <- getArgs
+    if null args
+        then (return . lines) =<< getContents
+        else return args
+
+
 main :: IO ()
 main = do
 
-    input <- (return . lines) =<< getContents
+    input <- getInput
     when (null input) exitFailure
 
     output <- newIORef ""
