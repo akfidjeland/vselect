@@ -14,6 +14,7 @@ Cabal-Version:      >= 1.2
 Executable vselect
     Build-depends:  base,   
                     mtl >= 2.0 && < 2.1,
+                    unix,
                     vty-ui >= 1.1,
                     vty >= 4.6 && < 4.7
     GHC-Options:    -Wall
