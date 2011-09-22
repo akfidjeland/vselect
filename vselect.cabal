@@ -20,3 +20,4 @@ Executable vselect
     GHC-Options:    -Wall
     Hs-Source-Dirs: src
     Main-is:        VSelect.hs
+    Other-modules:  SelectWidget
