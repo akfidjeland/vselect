@@ -6,6 +6,7 @@ import Data.List (intercalate)
 import Data.Maybe (fromJust)
 import Graphics.Vty
 import Graphics.Vty.Widgets.All
+import qualified Data.Text as T
 
 
 data Entry = Entry {
@@ -36,7 +37,7 @@ toggleSelected w = do
         (Just (i, (e, _))) -> do
             _ <- removeFromList w i
             let e' = toggle e
-            we <- plainText (show e')
+            we <- plainText (T.pack (show e'))
             insertIntoList w e' we i
             setSelected w i
 
@@ -69,7 +70,7 @@ selectWidget input exit = do
         entries = zipWith3 Entry indices (repeat False) input
     w <- newList attr
     forM_ entries $ \e ->
-        addToList w e =<< plainText (show e)
+        addToList w e =<< plainText (T.pack (show e))
 
     setFocusAttribute w $ attr
 
