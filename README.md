@@ -29,3 +29,9 @@ The current selection is either:
 
 1. the set of all marked items;
 2. or, if there are no marked items the currently active item in the list
+
+# Installation
+
+	runghc Setup.hs configure
+	runghc Setup.hs build
+	runghc Setup.hs install
